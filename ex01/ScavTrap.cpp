@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 08:48:30 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/21 11:00:46 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/21 11:07:22 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,4 +119,9 @@ void ScavTrap::attack(const std::string& target)
   _energy--;
   std::cout << _prefix << "attacks " << target << ", causing " << _dmg
             << " points of damage! Energy: " << _energy << std::endl;
+}
+
+void ScavTrap::guardGate()
+{
+  std::cout << _prefix << "is now in Gatekeeper mode!" << std::endl;
 }

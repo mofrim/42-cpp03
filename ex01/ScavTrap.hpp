@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 08:38:58 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/21 10:57:18 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/21 11:06:27 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class ScavTrap: public ClapTrap
     virtual void beRepaired(unsigned int amount);
     virtual void takeDamage(unsigned int amount);
     virtual void attack(const std::string& target);
+
+    void guardGate();
 };
 
 #endif

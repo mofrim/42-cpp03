@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:19 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/21 10:24:34 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/21 11:08:35 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(void)
   clap.attack("Kalle");
   clap.attack("Kalle");
   clap.attack("Kalle");
-  clap.attack("Kalle");
+  clap.guardGate();
 
   return (0);
 }
