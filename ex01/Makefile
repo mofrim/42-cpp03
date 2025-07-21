@@ -6,21 +6,21 @@
 #    By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/01 11:45:58 by fmaurer           #+#    #+#              #
-#    Updated: 2025/07/21 08:06:14 by fmaurer          ###   ########.fr        #
+#    Updated: 2025/07/21 08:38:36 by fmaurer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Simple skeleton Makefile
 
-NAME 		= clap1
+NAME 		= clap2
 
 VPATH = .
-SRC	= main.cpp ClapTrap.cpp utils.cpp
+SRC	= main.cpp ClapTrap.cpp ScavTrap.cpp utils.cpp
 OBJDIR	= obj
 OBJS		= $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRC))
 CFLAGS	= -Wall -Werror -Wextra -std=c++98
 CPP			= c++
-HDR			= ClapTrap.hpp utils.hpp
+HDR			= ScavTrap.hpp ClapTrap.hpp utils.hpp
 
 all: $(NAME)
 
