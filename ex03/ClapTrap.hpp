@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:42 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/22 20:41:32 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/22 21:39:52 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class ClapTrap
   private:
     std::string _prefix;
 
-    // needed to make this a function because with making a prefix a variable
-    // would demand updating (and not forgetting about this!) with every
-    // assignment or whatnot.
+    // INSIGHT: needed to make this a function !! because with making the prefix
+    // a variable would demand updating (and not forgetting about this!) with
+    // every assignment or whatnot.
     const std::string _getPrefix();
 
   protected:
