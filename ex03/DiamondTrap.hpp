@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:57:39 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/22 18:58:04 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/23 18:27:27 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 class DiamondTrap: public ScavTrap, public FragTrap
 {
-
   private:
     std::string _name;
     DiamondTrap();
@@ -31,10 +30,7 @@ class DiamondTrap: public ScavTrap, public FragTrap
     DiamondTrap& operator=(const DiamondTrap& other);
     ~DiamondTrap();
 
-  friend void ScavTrap::attack(const std::string& target);
-
     void whoAmI();
-    // friend void ScavTrap::attack(const std::string& target);
 };
 
 #endif
