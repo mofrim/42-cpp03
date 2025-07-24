@@ -6,19 +6,20 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:52:19 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/22 20:24:52 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 21:09:28 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_HPP
-#define FILE_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 
 class FragTrap: virtual public ClapTrap
 {
   private:
-    std::string _name;
+    std::string _FragPrefix;
+  std::string _name;
 
   protected:
     FragTrap();

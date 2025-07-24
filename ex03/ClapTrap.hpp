@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:42 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/22 21:39:52 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 17:18:57 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 
 #include <string>
 
+// had to make some members protected, not private. otherwise ScavTrap wouldn't
+// be able to access theses members. except for the _ClapPrefix which should not
+// be re-used in derived classes.
 class ClapTrap
 {
   private:
-    std::string _prefix;
-
-    // INSIGHT: needed to make this a function !! because with making the prefix
-    // a variable would demand updating (and not forgetting about this!) with
-    // every assignment or whatnot.
-    const std::string _getPrefix();
+    std::string _ClapPrefix;
 
   protected:
     ClapTrap();
@@ -39,9 +37,9 @@ class ClapTrap
     ClapTrap& operator=(const ClapTrap& other);
     ~ClapTrap();
 
-    virtual void beRepaired(unsigned int amount);
-    virtual void takeDamage(unsigned int amount);
-    virtual void attack(const std::string& target);
+    void beRepaired(const unsigned int& amount);
+    void takeDamage(const unsigned int& amount);
+    void attack(const std::string& target);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:44:36 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 20:21:20 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 20:25:02 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,110 +17,112 @@
 
 ClapTrap::ClapTrap(): _name("noname"), _hp(10), _energy(10), _dmg(0)
 {
-  dbg_msg("ClapTrap " + _name, "Default Constructor called.");
+  dbg_msg("ClapTrap " + this->_name, "Default Constructor called.");
+  this->_ClapPrefix = "_ClapTrap_ (" + this->_name + ") ";
 }
 
 ClapTrap::ClapTrap(const std::string& name):
   _name(name), _hp(10), _energy(10), _dmg(0)
 {
-  dbg_msg("ClapTrap " + _name, "Default-Name Constructor called.");
+  dbg_msg("ClapTrap " + this->_name, "Default-Name Constructor called.");
+  this->_ClapPrefix = "_ClapTrap_ (" + this->_name + ") ";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
+  dbg_msg("ClapTrap " + this->_name, "Copy-Constructor called.");
   if (this != &other)
   {
-    _name   = other._name;
-    _hp     = other._hp;
-    _energy = other._energy;
-    _dmg    = other._dmg;
+    this->_name       = other._name;
+    this->_hp         = other._hp;
+    this->_energy     = other._energy;
+    this->_dmg        = other._dmg;
+    this->_ClapPrefix = other._ClapPrefix;
   }
-  dbg_msg("ClapTrap " + _name, "Copy-Constructor called.");
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
+  dbg_msg("ClapTrap " + this->_name, "Assignment-Constructor called.");
   if (this != &other)
   {
-    _name   = other._name;
-    _hp     = other._hp;
-    _energy = other._energy;
-    _dmg    = other._dmg;
+    this->_name       = other._name;
+    this->_hp         = other._hp;
+    this->_energy     = other._energy;
+    this->_dmg        = other._dmg;
+    this->_ClapPrefix = other._ClapPrefix;
   }
-  dbg_msg("ClapTrap " + _name, "Assignment-Constructor called.");
   return (*this);
 }
 
-ClapTrap::~ClapTrap() { dbg_msg("ClapTrap " + _name, "Destructor called."); }
-
-const std::string ClapTrap::_getPrefix()
+ClapTrap::~ClapTrap()
 {
-  std::string prefix("_ClapTrap_ (" + _name + ") ");
-  return (prefix);
+  dbg_msg("ClapTrap " + this->_name, "Destructor called.");
 }
 
-void ClapTrap::beRepaired(unsigned int amount)
+void ClapTrap::beRepaired(const unsigned int& amount)
 {
-  if (_hp == -1)
+  if (this->_hp == -1)
   {
-    std::cout << _getPrefix() << "already dead!" << std::endl;
+    std::cout << this->_ClapPrefix << "already dead!" << std::endl;
     return;
   }
-  if (_energy == 0)
+  if (this->_energy == 0)
   {
-    std::cout << _getPrefix() << "has 0 energy. No more repair possible!"
+    std::cout << this->_ClapPrefix << "has 0 energy. No more repair possible!"
               << std::endl;
     return;
   }
-  _hp += amount;
-  _energy--;
-  std::cout << _getPrefix() << "is being repaired by " << amount
-            << " hitpoints. Remaining HP: " << _hp
-            << ", remaining energy: " << _energy << std::endl;
+  this->_hp += amount;
+  this->_energy--;
+  std::cout << this->_ClapPrefix << "is being repaired by " << amount
+            << " hitpoints. Remaining HP: " << this->_hp
+            << ", remaining energy: " << this->_energy << std::endl;
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
+void ClapTrap::takeDamage(const unsigned int& amount)
 {
-  if (_hp == -1)
+  if (this->_hp == -1)
   {
-    std::cout << _getPrefix() << "already dead!" << std::endl;
+    std::cout << this->_ClapPrefix << "already dead!" << std::endl;
     return;
   }
   if (_hp > amount)
   {
-    _hp -= amount;
-    std::cout << _getPrefix() << "takes " << amount
-              << " hitpoints of damage. Remaining HP: " << _hp << std::endl;
-  } else if (_hp == amount)
+    this->_hp -= amount;
+    std::cout << this->_ClapPrefix << "takes " << amount
+              << " hitpoints of damage. Remaining HP: " << this->_hp
+              << std::endl;
+  } else if (this->_hp == amount)
   {
     std::cout
-        << _getPrefix() << "takes " << amount
+        << this->_ClapPrefix << "takes " << amount
         << " hitpoints of damage. Remaining HP: 0. One more strike till death! "
         << std::endl;
-    _hp = 0;
-
+    this->_hp = 0;
   } else
   {
-    std::cout << _getPrefix() << " takes " << amount
+    std::cout << this->_ClapPrefix << " takes " << amount
               << " hitpoints of damage. HP < 0 -> Dead! " << std::endl;
-    _hp = -1;
+    this->_hp = -1;
   }
 }
 
 void ClapTrap::attack(const std::string& target)
 {
-  if (_hp == -1)
+  if (this->_hp == -1)
   {
-    std::cout << _getPrefix() << "already dead!" << std::endl;
+    std::cout << this->_ClapPrefix << "already dead!" << std::endl;
     return;
   }
-  if (_energy == 0)
+  if (this->_energy == 0)
   {
-    std::cout << _getPrefix() << "has 0 energy. No more attacks possible!"
+    std::cout << this->_ClapPrefix << "has 0 energy. No more attacks possible!"
               << std::endl;
     return;
   }
-  _energy--;
-  std::cout << _getPrefix() << "attacks " << target << ", causing " << _dmg
-            << " points of damage! Energy: " << _energy << std::endl;
+  this->_energy--;
+  std::cout << this->_ClapPrefix << "attacks " << target << ", causing "
+            << this->_dmg << " points of damage! Energy: " << this->_energy
+            << std::endl;
 }

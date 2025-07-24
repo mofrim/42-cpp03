@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:57:31 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 20:21:20 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 21:07:22 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,40 +19,39 @@
 
 DiamondTrap::DiamondTrap(): ClapTrap(), ScavTrap(), FragTrap()
 {
-  dbg_msg("DiamondTrap", "Default constructor called.");
-
   _name             = "noname";
   FragTrap::_hp     = 100;
   ScavTrap::_energy = 50;
   FragTrap::_dmg    = 30;
+  dbg_msg("DiamondTrap " + this->_name, "Default constructor called.");
 }
 
 DiamondTrap::DiamondTrap(const std::string& name):
   ClapTrap(name), ScavTrap(name), FragTrap(name)
 {
-  dbg_msg("DiamondTrap", "Default constructor called.");
-
   _name           = name;
   ClapTrap::_name = name + "_clap_name";
   _hp             = FragTrap::_hp;
   _energy         = ScavTrap::_energy;
   _dmg            = FragTrap::_dmg;
+  dbg_msg("DiamondTrap " + this->_name, "Default constructor called.");
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other):
   ClapTrap(other), ScavTrap(other), FragTrap(other)
 {
-  dbg_msg("DiamondTrap", "Default constructor called.");
   _name           = other._name;
   ClapTrap::_name = other._name + "_clap_name";
   _hp             = other.FragTrap::_hp;
   _energy         = other.ScavTrap::_hp;
   _dmg            = other.FragTrap::_dmg;
+  dbg_msg("DiamondTrap " + this->_name, "Default constructor called.");
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
-  dbg_msg("DiamondTrap", "Default assingment constructor called.");
+  dbg_msg("DiamondTrap " + this->_name,
+          "Default assingment constructor called.");
   if (this != &other)
   {
     _name           = other._name;
@@ -64,7 +63,10 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
   return (*this);
 }
 
-DiamondTrap::~DiamondTrap() {}
+DiamondTrap::~DiamondTrap()
+{
+  dbg_msg("DiamondTrap " + this->_name, "Destructor called.");
+}
 
 void DiamondTrap::whoAmI()
 {

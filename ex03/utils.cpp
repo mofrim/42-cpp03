@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:37:16 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/21 10:27:30 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 20:32:10 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,5 @@ void dbg_msg(const std::string& name, const std::string& msg)
   if (DEBUG)
     std::cout << "[" << name << "] " << msg << std::endl;
 }
+
+void newline() { std::cout << std::endl; }

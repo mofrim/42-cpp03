@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:52:15 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 20:21:20 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 21:12:47 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,45 +17,51 @@
 
 FragTrap::FragTrap(): ClapTrap()
 {
-  dbg_msg("FragTrap " + _name, "Default constructor called.");
-  _hp     = 100;
-  _energy = 100;
-  _dmg    = 30;
-  _name = "noname";
+  this->_name       = "noname";
+  this->_hp         = 100;
+  this->_energy     = 100;
+  this->_dmg        = 30;
+  this->_FragPrefix = "_FragTrap_ (" + this->_name + ") ";
+  dbg_msg("FragTrap " + this->_name, "Default constructor called.");
 }
 
 FragTrap::FragTrap(const std::string& name): ClapTrap(name)
 {
-  _hp     = 100;
-  _energy = 100;
-  _dmg    = 30;
-  _name = name;
-  dbg_msg("FragTrap " + _name, "Default-Name constructor called.");
+  this->_name       = name;
+  this->_hp         = 100;
+  this->_energy     = 100;
+  this->_dmg        = 30;
+  this->_FragPrefix = "_FragTrap_ (" + this->_name + ") ";
+  dbg_msg("FragTrap " + this->_name, "Default-Name constructor called.");
 }
 
 FragTrap::FragTrap(const FragTrap& other): ClapTrap(other)
 {
-  dbg_msg("FragTrap " + _name, "copy constructor called.");
+  dbg_msg("FragTrap " + this->_name, "Copy-Constructor called.");
+  this->_name = other._name;
+  this->_FragPrefix = other._FragPrefix;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
+  dbg_msg("FragTrap " + this->_name, "Assignment-Constructor called.");
   if (this != &other)
   {
-    _name   = other._name;
-    std::cout << "other name: " << other._name << std::endl;
-    ClapTrap::_name = other._name;
-    _hp     = other._hp;
-    _energy = other._energy;
-    _dmg    = other._dmg;
+    this->_name       = other._name;
+    this->_hp         = other._hp;
+    this->_energy     = other._energy;
+    this->_dmg        = other._dmg;
+    this->_FragPrefix = other._FragPrefix;
   }
-  dbg_msg("FragTrap " + _name, "assignment constructor called.");
   return (*this);
 }
 
-FragTrap::~FragTrap() { dbg_msg("FragTrap " + _name, "Destructor called."); };
+FragTrap::~FragTrap()
+{
+  dbg_msg("FragTrap " + this->_name, "Destructor called.");
+};
 
 void FragTrap::highFivesGuys()
 {
-  std::cout << "_FragTrap_ (" + _name + ") " << "come on, high-fives ?!" << std::endl;
+  std::cout << this->_FragPrefix << "come on high-fives ?!" << std::endl;
 }
