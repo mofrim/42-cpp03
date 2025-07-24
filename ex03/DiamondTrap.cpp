@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:57:31 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/22 19:53:35 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 20:21:20 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ DiamondTrap::DiamondTrap(): ClapTrap(), ScavTrap(), FragTrap()
 {
   dbg_msg("DiamondTrap", "Default constructor called.");
 
-  _name             = "Elon";
+  _name             = "noname";
   FragTrap::_hp     = 100;
   ScavTrap::_energy = 50;
   FragTrap::_dmg    = 30;

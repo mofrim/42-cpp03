@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:52:15 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/22 20:35:27 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 20:21:20 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ FragTrap::FragTrap(): ClapTrap()
   _hp     = 100;
   _energy = 100;
   _dmg    = 30;
-  _name = "Elon";
+  _name = "noname";
 }
 
 FragTrap::FragTrap(const std::string& name): ClapTrap(name)

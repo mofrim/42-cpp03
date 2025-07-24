@@ -6,12 +6,12 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:52:19 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/22 16:50:55 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 20:36:24 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_HPP
-#define FILE_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 
@@ -19,6 +19,7 @@ class FragTrap: public ClapTrap
 {
   private:
     FragTrap();
+    std::string _FragPrefix;
 
   public:
     // OCF
@@ -26,10 +27,6 @@ class FragTrap: public ClapTrap
     FragTrap(const FragTrap& other);
     FragTrap& operator=(const FragTrap& other);
     ~FragTrap();
-
-    virtual void beRepaired(unsigned int amount);
-    virtual void takeDamage(unsigned int amount);
-    virtual void attack(const std::string& target);
 
     void highFivesGuys();
 };

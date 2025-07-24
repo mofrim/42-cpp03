@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:44:36 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 13:21:38 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 20:20:47 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 
-ClapTrap::ClapTrap(): _name("Elon"), _hp(10), _energy(10), _dmg(0)
+ClapTrap::ClapTrap(): _name("noname"), _hp(10), _energy(10), _dmg(0)
 {
   dbg_msg("ClapTrap " + this->_name, "Default Constructor called.");
   this->_msgPrefix = "_ClapTrap_ (" + this->_name + ") ";

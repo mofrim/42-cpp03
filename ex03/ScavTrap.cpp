@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 08:48:30 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/22 20:22:24 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 20:21:20 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
-  _name   = "Elon";
+  _name   = "noname";
   _hp     = 100;
   _energy = 50;
   _dmg    = 20;

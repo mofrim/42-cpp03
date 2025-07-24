@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 08:48:30 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/21 11:07:22 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 17:18:23 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,111 +17,67 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
-  dbg_msg("ScavTrap", "Default constructor called.");
-  _hp     = 100;
-  _energy = 50;
-  _dmg    = 20;
-  _prefix = "_ScavTrap_ (" + _name + ") ";
+  dbg_msg("ScavTrap " + this->_name, "Default constructor called.");
+  this->_hp         = 100;
+  this->_energy     = 50;
+  this->_dmg        = 20;
+  this->_ScavPrefix = "_ScavTrap_ (" + this->_name + ") ";
 }
 
 ScavTrap::ScavTrap(const std::string& name): ClapTrap(name)
 {
-  dbg_msg("ScavTrap", "Default-Name constructor called.");
-  _hp     = 100;
-  _energy = 50;
-  _dmg    = 20;
-  _prefix = "_ScavTrap_ (" + _name + ") ";
+  dbg_msg("ScavTrap " + this->_name, "Default-Name constructor called.");
+  this->_hp         = 100;
+  this->_energy     = 50;
+  this->_dmg        = 20;
+  this->_ScavPrefix = "_ScavTrap_ (" + this->_name + ") ";
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
 {
-  dbg_msg("ScavTrap", "copy constructor called.");
-  _prefix = "_ScavTrap_ (" + _name + ") ";
+  dbg_msg("ScavTrap " + this->_name, "Copy constructor called.");
+  this->_ScavPrefix = other._ScavPrefix;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-  dbg_msg("ScavTrap", "assignment constructor called.");
+  dbg_msg("ScavTrap " + this->_name, "assignment constructor called.");
   if (this != &other)
   {
-    _name   = other._name;
-    _hp     = other._hp;
-    _energy = other._energy;
-    _dmg    = other._dmg;
-    _prefix = "_ScavTrap_ (" + _name + ") ";
+    this->_name       = other._name;
+    this->_hp         = other._hp;
+    this->_energy     = other._energy;
+    this->_dmg        = other._dmg;
+    this->_ScavPrefix = other._ScavPrefix;
   }
   return (*this);
 }
 
-ScavTrap::~ScavTrap() { dbg_msg("ScavTrap", "Destructor called."); };
-
-void ScavTrap::beRepaired(unsigned int amount)
+ScavTrap::~ScavTrap()
 {
-  if (_hp == -1)
-  {
-    std::cout << _prefix << "already dead!" << std::endl;
-    return;
-  }
-  if (_energy == 0)
-  {
-    std::cout << _prefix << "has 0 energy. No more repair possible!"
-              << std::endl;
-    return;
-  }
-  _hp += amount;
-  _energy--;
-  std::cout << _prefix << "is being repaired by " << amount
-            << " hitpoints. Remaining HP: " << _hp
-            << ", remaining energy: " << _energy << std::endl;
-}
-
-void ScavTrap::takeDamage(unsigned int amount)
-{
-  if (_hp == -1)
-  {
-    std::cout << _prefix << "already dead!" << std::endl;
-    return;
-  }
-  if (_hp > amount)
-  {
-    _hp -= amount;
-    std::cout << _prefix << "takes " << amount
-              << " hitpoints of damage. Remaining HP: " << _hp << std::endl;
-  } else if (_hp == amount)
-  {
-    std::cout
-        << _prefix << "takes " << amount
-        << " hitpoints of damage. Remaining HP: 0. One more strike till death! "
-        << std::endl;
-    _hp = 0;
-
-  } else
-  {
-    std::cout << _prefix << " takes " << amount
-              << " hitpoints of damage. HP < 0 -> Dead! " << std::endl;
-    _hp = -1;
-  }
-}
+  dbg_msg("ScavTrap " + this->_name, "Destructor called.");
+};
 
 void ScavTrap::attack(const std::string& target)
 {
   if (_hp == -1)
   {
-    std::cout << _prefix << "already dead!" << std::endl;
+    std::cout << this->_ScavPrefix << "already dead!" << std::endl;
     return;
   }
-  if (_energy == 0)
+  if (this->_energy == 0)
   {
-    std::cout << _prefix << "has 0 energy. No more attacks possible!"
+    std::cout << this->_ScavPrefix << "has 0 energy. No more attacks possible!"
               << std::endl;
     return;
   }
-  _energy--;
-  std::cout << _prefix << "attacks " << target << ", causing " << _dmg
-            << " points of damage! Energy: " << _energy << std::endl;
+  this->_energy--;
+  std::cout << this->_ScavPrefix << "attacks " << target << ", causing "
+            << this->_dmg << " points of damage! Energy: " << this->_energy
+            << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
-  std::cout << _prefix << "is now in Gatekeeper mode!" << std::endl;
+  std::cout << this->_ScavPrefix << "is now in Gatekeeper mode!" << std::endl;
 }
