@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:44:36 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/21 11:01:22 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 13:21:38 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,108 +17,113 @@
 
 ClapTrap::ClapTrap(): _name("Elon"), _hp(10), _energy(10), _dmg(0)
 {
-  dbg_msg("ClapTrap", "Default Constructor called.");
-  _prefix = "_ClapTrap_ (" + _name + ") ";
+  dbg_msg("ClapTrap " + this->_name, "Default Constructor called.");
+  this->_msgPrefix = "_ClapTrap_ (" + this->_name + ") ";
 }
 
 ClapTrap::ClapTrap(const std::string& name):
   _name(name), _hp(10), _energy(10), _dmg(0)
 {
-  dbg_msg("ClapTrap", "Default-Name Constructor called.");
-  _prefix = "_ClapTrap_ (" + _name + ") ";
+  dbg_msg("ClapTrap " + this->_name, "Default-Name Constructor called.");
+  this->_msgPrefix = "_ClapTrap_ (" + this->_name + ") ";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-  dbg_msg("ClapTrap", "Copy-Constructor called.");
+  dbg_msg("ClapTrap " + this->_name, "Copy-Constructor called.");
   if (this != &other)
   {
-    _name   = other._name;
-    _hp     = other._hp;
-    _energy = other._energy;
-    _dmg    = other._dmg;
-    _prefix = "_ClapTrap_ (" + _name + ") ";
+    this->_name      = other._name;
+    this->_hp        = other._hp;
+    this->_energy    = other._energy;
+    this->_dmg       = other._dmg;
+    this->_msgPrefix = "_ClapTrap_ (" + this->_name + ") ";
   }
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-  dbg_msg("ClapTrap", "Assignment-Constructor called.");
+  dbg_msg("ClapTrap " + this->_name, "Assignment-Constructor called.");
   if (this != &other)
   {
-    _name   = other._name;
-    _hp     = other._hp;
-    _energy = other._energy;
-    _dmg    = other._dmg;
-    _prefix = "_ClapTrap_ (" + _name + ") ";
+    this->_name      = other._name;
+    this->_hp        = other._hp;
+    this->_energy    = other._energy;
+    this->_dmg       = other._dmg;
+    this->_msgPrefix = "_ClapTrap_ (" + this->_name + ") ";
   }
   return (*this);
 }
 
-ClapTrap::~ClapTrap() { dbg_msg("ClapTrap", "Destructor called."); }
-
-void ClapTrap::beRepaired(unsigned int amount)
+ClapTrap::~ClapTrap()
 {
-  if (_hp == -1)
+  dbg_msg("ClapTrap " + this->_name, "Destructor called.");
+}
+
+void ClapTrap::beRepaired(const unsigned int& amount)
+{
+  if (this->_hp == -1)
   {
-    std::cout << _prefix << "already dead!" << std::endl;
+    std::cout << this->_msgPrefix << "already dead!" << std::endl;
     return;
   }
-  if (_energy == 0)
+  if (this->_energy == 0)
   {
-    std::cout << _prefix << "has 0 energy. No more repair possible!"
+    std::cout << this->_msgPrefix << "has 0 energy. No more repair possible!"
               << std::endl;
     return;
   }
-  _hp += amount;
-  _energy--;
-  std::cout << _prefix << "is being repaired by " << amount
-            << " hitpoints. Remaining HP: " << _hp
-            << ", remaining energy: " << _energy << std::endl;
+  this->_hp += amount;
+  this->_energy--;
+  std::cout << this->_msgPrefix << "is being repaired by " << amount
+            << " hitpoints. Remaining HP: " << this->_hp
+            << ", remaining energy: " << this->_energy << std::endl;
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
+void ClapTrap::takeDamage(const unsigned int& amount)
 {
-  if (_hp == -1)
+  if (this->_hp == -1)
   {
-    std::cout << _prefix << "already dead!" << std::endl;
+    std::cout << this->_msgPrefix << "already dead!" << std::endl;
     return;
   }
   if (_hp > amount)
   {
-    _hp -= amount;
-    std::cout << _prefix << "takes " << amount
-              << " hitpoints of damage. Remaining HP: " << _hp << std::endl;
-  } else if (_hp == amount)
+    this->_hp -= amount;
+    std::cout << this->_msgPrefix << "takes " << amount
+              << " hitpoints of damage. Remaining HP: " << this->_hp
+              << std::endl;
+  } else if (this->_hp == amount)
   {
     std::cout
-        << _prefix << "takes " << amount
+        << this->_msgPrefix << "takes " << amount
         << " hitpoints of damage. Remaining HP: 0. One more strike till death! "
         << std::endl;
-    _hp = 0;
+    this->_hp = 0;
 
   } else
   {
-    std::cout << _prefix << " takes " << amount
+    std::cout << this->_msgPrefix << " takes " << amount
               << " hitpoints of damage. HP < 0 -> Dead! " << std::endl;
-    _hp = -1;
+    this->_hp = -1;
   }
 }
 
 void ClapTrap::attack(const std::string& target)
 {
-  if (_hp == -1)
+  if (this->_hp == -1)
   {
-    std::cout << _prefix << "already dead!" << std::endl;
+    std::cout << this->_msgPrefix << "already dead!" << std::endl;
     return;
   }
-  if (_energy == 0)
+  if (this->_energy == 0)
   {
-    std::cout << _prefix << "has 0 energy. No more attacks possible!"
+    std::cout << this->_msgPrefix << "has 0 energy. No more attacks possible!"
               << std::endl;
     return;
   }
-  _energy--;
-  std::cout << _prefix << "attacks " << target << ", causing " << _dmg
-            << " points of damage! Energy: " << _energy << std::endl;
+  this->_energy--;
+  std::cout << this->_msgPrefix << "attacks " << target << ", causing "
+            << this->_dmg << " points of damage! Energy: " << this->_energy
+            << std::endl;
 }

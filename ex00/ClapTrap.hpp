@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:42 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/21 11:01:15 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 13:09:48 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ClapTrap
     ClapTrap();
 
     std::string _name;
-    std::string _prefix;
+    std::string _msgPrefix;
     long        _hp;
     long        _energy;
     int         _dmg;
@@ -32,8 +32,8 @@ class ClapTrap
     ClapTrap& operator=(const ClapTrap& other);
     ~ClapTrap();
 
-    void beRepaired(unsigned int amount);
-    void takeDamage(unsigned int amount);
+    void beRepaired(const unsigned int& amount);
+    void takeDamage(const unsigned int& amount);
     void attack(const std::string& target);
 };
 

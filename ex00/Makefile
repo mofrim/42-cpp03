@@ -6,13 +6,13 @@
 #    By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/01 11:45:58 by fmaurer           #+#    #+#              #
-#    Updated: 2025/07/21 08:06:14 by fmaurer          ###   ########.fr        #
+#    Updated: 2025/07/24 12:48:33 by fmaurer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Simple skeleton Makefile
 
-NAME 		= clap1
+NAME 		= clap0
 
 VPATH = .
 SRC	= main.cpp ClapTrap.cpp utils.cpp
