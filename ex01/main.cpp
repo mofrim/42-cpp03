@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:19 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/21 11:08:35 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/07/24 17:11:48 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ int main(void)
   clap.takeDamage(25);
   clap.beRepaired(1);
   clap.beRepaired(100);
-  clap.attack("Kalle");
-  clap.attack("Kalle");
-  clap.attack("Kalle");
   clap.attack("Kalle");
   clap.guardGate();
 
