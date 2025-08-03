@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 08:48:30 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 17:18:23 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 19:24:19 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@
 ScavTrap::ScavTrap(): ClapTrap()
 {
   dbg_msg("ScavTrap " + this->_name, "Default constructor called.");
-  this->_hp         = 100;
-  this->_energy     = 50;
-  this->_dmg        = 20;
-  this->_ScavPrefix = "_ScavTrap_ (" + this->_name + ") ";
+  this->_hp        = 100;
+  this->_nrg       = 50;
+  this->_dmg       = 20;
+  this->_msgPrefix = get_prefix("ScavTrap", this->_name);
 }
 
 ScavTrap::ScavTrap(const std::string& name): ClapTrap(name)
 {
   dbg_msg("ScavTrap " + this->_name, "Default-Name constructor called.");
-  this->_hp         = 100;
-  this->_energy     = 50;
-  this->_dmg        = 20;
-  this->_ScavPrefix = "_ScavTrap_ (" + this->_name + ") ";
+  this->_hp        = 100;
+  this->_nrg       = 50;
+  this->_dmg       = 20;
+  this->_msgPrefix = get_prefix("ScavTrap", this->_name);
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
 {
   dbg_msg("ScavTrap " + this->_name, "Copy constructor called.");
-  this->_ScavPrefix = other._ScavPrefix;
+  this->_msgPrefix = get_prefix("ScavTrap", this->_name);
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
@@ -44,11 +44,11 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
   dbg_msg("ScavTrap " + this->_name, "assignment constructor called.");
   if (this != &other)
   {
-    this->_name       = other._name;
-    this->_hp         = other._hp;
-    this->_energy     = other._energy;
-    this->_dmg        = other._dmg;
-    this->_ScavPrefix = other._ScavPrefix;
+    this->_name      = other._name;
+    this->_hp        = other._hp;
+    this->_nrg       = other._nrg;
+    this->_dmg       = other._dmg;
+    this->_msgPrefix = other._msgPrefix;
   }
   return (*this);
 }
@@ -62,22 +62,26 @@ void ScavTrap::attack(const std::string& target)
 {
   if (_hp == -1)
   {
-    std::cout << this->_ScavPrefix << "already dead!" << std::endl;
-    return;
-  }
-  if (this->_energy == 0)
-  {
-    std::cout << this->_ScavPrefix << "has 0 energy. No more attacks possible!"
+    std::cout << this->_msgPrefix << "trying to attack but already dead!"
               << std::endl;
+    printStats();
     return;
   }
-  this->_energy--;
-  std::cout << this->_ScavPrefix << "attacks " << target << ", causing "
-            << this->_dmg << " points of damage! Energy: " << this->_energy
-            << std::endl;
+  if (this->_nrg == 0)
+  {
+    std::cout << this->_msgPrefix << "has 0 energy. No more attacks possible!"
+              << std::endl;
+    printStats();
+    return;
+  }
+  this->_nrg--;
+  std::cout << this->_msgPrefix << "attacks " << target << ", causing "
+            << this->_dmg << " points of damage!" << std::endl;
+  printStats();
 }
 
 void ScavTrap::guardGate()
 {
-  std::cout << this->_ScavPrefix << "is now in Gatekeeper mode!" << std::endl;
+  std::cout << this->_msgPrefix << "is now in Gatekeeper mode!" << std::endl;
+  printStats();
 }

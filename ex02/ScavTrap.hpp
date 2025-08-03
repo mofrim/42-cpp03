@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 08:38:58 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 17:16:10 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 19:37:44 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class ScavTrap: public ClapTrap
 {
   private:
     ScavTrap();
-    std::string _ScavPrefix;
+    std::string _msgPrefix;
 
   public:
     ScavTrap(const std::string& name);

@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:19 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 20:32:49 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 19:46:16 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,15 @@ int main()
   clapfrag.attack("Kalle");
   clapfrag.attack("Kalle");
   clapfrag.highFivesGuys();
+
+  newline();
+
+  FragTrap fraggy("Moep");
+
+  newline();
+  
+  fraggy.highFivesGuys();
+  fraggy.beRepaired(0);
 
   newline();
 

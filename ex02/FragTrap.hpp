@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:52:19 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 20:36:24 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 19:36:04 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class FragTrap: public ClapTrap
 {
   private:
     FragTrap();
-    std::string _FragPrefix;
+    std::string _msgPrefix;
 
   public:
     // OCF
@@ -28,7 +28,7 @@ class FragTrap: public ClapTrap
     FragTrap& operator=(const FragTrap& other);
     ~FragTrap();
 
-    void highFivesGuys();
+    void highFivesGuys() const;
 };
 
 #endif

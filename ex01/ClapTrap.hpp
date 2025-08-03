@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:42 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 17:18:57 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 19:19:45 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@
 class ClapTrap
 {
   private:
-    std::string _ClapPrefix;
+    std::string _msgPrefix;
 
   protected:
     ClapTrap();
 
     std::string _name;
     long        _hp;
-    long        _energy;
+    long        _nrg;
     int         _dmg;
 
   public:
@@ -40,6 +40,8 @@ class ClapTrap
     void beRepaired(const unsigned int& amount);
     void takeDamage(const unsigned int& amount);
     void attack(const std::string& target);
+
+    void printStats() const;
 };
 
 #endif
