@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 08:48:30 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/08/03 19:24:19 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 22:00:37 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ ScavTrap::ScavTrap(const std::string& name): ClapTrap(name)
 ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
 {
   dbg_msg("ScavTrap " + this->_name, "Copy constructor called.");
-  this->_msgPrefix = get_prefix("ScavTrap", this->_name);
+  this->_msgPrefix = other._msgPrefix;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)

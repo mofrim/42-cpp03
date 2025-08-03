@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:44:36 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/08/03 19:17:27 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 21:59:25 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
     this->_hp        = other._hp;
     this->_nrg       = other._nrg;
     this->_dmg       = other._dmg;
-    this->_msgPrefix = get_prefix("ClapTrap", this->_name);
+    this->_msgPrefix = other._msgPrefix;
   }
 }
 
@@ -51,7 +51,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
     this->_hp        = other._hp;
     this->_nrg       = other._nrg;
     this->_dmg       = other._dmg;
-    this->_msgPrefix = get_prefix("ClapTrap", this->_name);
+    this->_msgPrefix = other._msgPrefix;
   }
   return (*this);
 }
