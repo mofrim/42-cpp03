@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:38:44 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/21 10:31:51 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 17:53:02 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #define DEBUG 1
 #endif
 
-void dbg_msg(const std::string& name, const std::string& msg);
+void        dbg_msg(const std::string& name, const std::string& msg);
+std::string get_prefix(const std::string& name);
 
 #endif

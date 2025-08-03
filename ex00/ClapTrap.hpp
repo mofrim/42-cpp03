@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:42 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 13:09:48 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 13:38:40 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class ClapTrap
     std::string _name;
     std::string _msgPrefix;
     long        _hp;
-    long        _energy;
+    long        _nrg;
     int         _dmg;
 
   public:

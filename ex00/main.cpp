@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:19 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 12:56:45 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 17:55:28 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,22 @@ int main(void)
   clap1.takeDamage(0);
 
   std::cout << std::endl;
+
+  clap1 = clap0;
+
+  std::cout << std::endl;
+
+  clap1.attack("Horst");
+
+  std::cout << std::endl;
+
+  ClapTrap clap2(clap1);
+
+  std::cout << std::endl;
+
+  clap2.takeDamage(1000);
+  clap2.beRepaired(1000);
+  clap2.takeDamage(1000);
 
   return (0);
 }
