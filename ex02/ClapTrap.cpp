@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:44:36 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/08/03 19:28:07 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 21:54:01 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,8 @@ void ClapTrap::attack(const std::string& target)
 {
   if (this->_hp == -1)
   {
-    std::cout << this->_msgPrefix << "trying to attack but already dead!" << std::endl;
+    std::cout << this->_msgPrefix << "trying to attack but already dead!"
+              << std::endl;
     printStats();
     return;
   }

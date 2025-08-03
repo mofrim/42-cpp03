@@ -6,14 +6,12 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:19 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/08/03 19:46:16 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 21:53:27 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "utils.hpp"
-
-#include <iostream>
 
 int main()
 {
@@ -42,7 +40,7 @@ int main()
   clapfrag.beRepaired(1);
   clapfrag.beRepaired(100);
   clapfrag.attack("Kalle");
-  clapfrag.attack("Kalle");
+  clapfrag.attack("Hoinz");
   clapfrag.highFivesGuys();
 
   newline();
@@ -50,7 +48,7 @@ int main()
   FragTrap fraggy("Moep");
 
   newline();
-  
+
   fraggy.highFivesGuys();
   fraggy.beRepaired(0);
 
