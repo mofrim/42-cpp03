@@ -6,11 +6,12 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:19 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/08/03 17:55:28 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 19:07:49 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "utils.hpp"
 
 #include <iostream>
 
@@ -18,7 +19,7 @@ int main(void)
 {
   ClapTrap clap0("Horst");
 
-  std::cout << std::endl;
+  newline();
 
   clap0.attack("Kalle");
   clap0.beRepaired(15);
@@ -33,33 +34,35 @@ int main(void)
   clap0.attack("Kalle");
   clap0.attack("Kalle");
 
-  std::cout << std::endl;
+  newline();
 
   ClapTrap clap1("Hoinz");
 
-  std::cout << std::endl;
+  newline();
 
   clap1.attack("Horst");
   clap1.beRepaired(0);
   clap1.takeDamage(0);
 
-  std::cout << std::endl;
+  newline();
 
   clap1 = clap0;
 
-  std::cout << std::endl;
+  newline();
 
   clap1.attack("Horst");
 
-  std::cout << std::endl;
+  newline();
 
   ClapTrap clap2(clap1);
 
-  std::cout << std::endl;
+  newline();
 
   clap2.takeDamage(1000);
   clap2.beRepaired(1000);
   clap2.takeDamage(1000);
+  
+  newline();
 
   return (0);
 }

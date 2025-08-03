@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:42 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/08/03 13:38:40 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 18:31:44 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class ClapTrap
     void beRepaired(const unsigned int& amount);
     void takeDamage(const unsigned int& amount);
     void attack(const std::string& target);
+
+    void printStats() const;
 };
 
 #endif
