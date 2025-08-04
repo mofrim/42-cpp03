@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 08:38:58 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/08/04 07:05:21 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/04 21:30:53 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 #include "ClapTrap.hpp"
 
+// well the virtual public... solves the diamond problem. this is exactly what
+// we have here: one base class is inherited through mutiple paths. without it
+// the compiler would not know if it should take the members from ClapTrap
+// inherited by ScavTrap or from ClapTrap inherited by FragTrap.
+//
+// Also needed to make the _dmg variable explicit member of ScavTrap in order to
+// save the custom dmg value from FragTrap.
 class ScavTrap: virtual public ClapTrap
 {
   private:
@@ -24,6 +31,7 @@ class ScavTrap: virtual public ClapTrap
 
   protected:
     ScavTrap();
+    int _dmg;
 
   public:
     ScavTrap(const std::string& name);
