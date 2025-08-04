@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 08:48:30 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/08/03 19:39:04 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/03 22:48:10 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,26 @@ void ScavTrap::attack(const std::string& target)
 {
   if (_hp == -1)
   {
-    std::cout << this->_msgPrefix << "already dead!" << std::endl;
+    std::cout << this->_msgPrefix << "trying to attack but already dead!"
+              << std::endl;
+    printStats();
     return;
   }
   if (this->_nrg == 0)
   {
     std::cout << this->_msgPrefix << "has 0 energy. No more attacks possible!"
               << std::endl;
+    printStats();
     return;
   }
   this->_nrg--;
   std::cout << this->_msgPrefix << "attacks " << target << ", causing "
-            << this->_dmg << " points of damage! Energy: " << this->_nrg
-            << std::endl;
+            << this->_dmg << " points of damage!" << std::endl;
+  printStats();
 }
 
 void ScavTrap::guardGate()
 {
   std::cout << this->_msgPrefix << "is now in Gatekeeper mode!" << std::endl;
+  printStats();
 }

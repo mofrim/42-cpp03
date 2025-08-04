@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:42 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 17:18:57 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/04 20:51:05 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,23 @@
 #include <string>
 
 // had to make some members protected, not private. otherwise ScavTrap wouldn't
-// be able to access theses members. except for the _ClapPrefix which should not
-// be re-used in derived classes.
+// be able to access theses members. except for the _msgPrefix and the
+// printStats which should be tied to the ClapTrap baseclass. This means,
+// whenever a function that is not a explicit member of some derived class like
+// beRepaired is called, then the printStats is coming from ClapTrap, not from
+// Scav or Frag or DiamondTrap.
 class ClapTrap
 {
   private:
-    std::string _ClapPrefix;
+    std::string _msgPrefix;
+    void        printStats() const;
 
   protected:
     ClapTrap();
 
     std::string _name;
     long        _hp;
-    long        _energy;
+    long        _nrg;
     int         _dmg;
 
   public:

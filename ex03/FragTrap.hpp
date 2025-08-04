@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:52:19 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 21:09:28 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/04 07:04:28 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 class FragTrap: virtual public ClapTrap
 {
   private:
-    std::string _FragPrefix;
-  std::string _name;
+    std::string _msgPrefix;
+    std::string _name;
+    void        printStats() const;
 
   protected:
     FragTrap();
@@ -31,7 +32,7 @@ class FragTrap: virtual public ClapTrap
     FragTrap& operator=(const FragTrap& other);
     ~FragTrap();
 
-    void highFivesGuys();
+    void highFivesGuys() const;
 };
 
 #endif

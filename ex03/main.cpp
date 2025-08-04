@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:42:19 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/24 21:01:50 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/04 07:02:17 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,17 @@ int main(void)
 
   newline();
 
-  // FragTrap frag("at");
-  // frag = FragTrap("aaaat");
-  // frag.attack("Chris");
+  FragTrap frag("at");
+
+  newline();
+
+  frag = FragTrap("aaaat");
+
+  newline();
+
+  frag.attack("Chris");
+
+  newline();
 
   return (0);
 }

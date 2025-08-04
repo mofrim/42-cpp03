@@ -6,7 +6,7 @@
 /*   By: fmaurer <fmaurer42@posteo.de>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:57:39 by fmaurer           #+#    #+#             */
-/*   Updated: 2025/07/23 18:27:27 by fmaurer          ###   ########.fr       */
+/*   Updated: 2025/08/04 07:09:47 by fmaurer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@
 
 #include <string>
 
+// inherits both not-so-base classes. Default constructor, _name, _msgPrefix and
+// printStats shall be private because we want a Diamond trap to know its
+// individuality.
 class DiamondTrap: public ScavTrap, public FragTrap
 {
   private:
-    std::string _name;
     DiamondTrap();
+    std::string _name;
+    std::string _msgPrefix;
+    void        printStats() const;
 
   public:
     DiamondTrap(const std::string& name);
